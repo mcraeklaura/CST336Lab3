@@ -4,6 +4,13 @@
     </head>
     <body>
     <?php
+    
+    $players = array(
+        $me = array("points" => 0),
+        $comp1 = array("points" => 0),
+        $comp2 = array("points" => 0),
+        $comp3 = array("points" => 0),
+        );
 
     //Hearts, Diamonds, Spades, Clubs
 
@@ -22,6 +29,8 @@
         $twoH, $twoD, $twoS, $twoC,
         $aceH, $aceD, $aceS, $aceC,
     );
+    
+    //Img 72x98 px
     
     $kingH = array("value" => 13,"img" => "",);
     $kingD = array("value" => 13,"img" => "",);
@@ -87,6 +96,31 @@
     $aceD = array("value" => 1, "img" => "",);    
     $aceS = array("value" => 1, "img" => "",);
     $aceC = array("value" => 1, "img" => "",);
+    
+    function shuffleDeck(){
+        
+    }
+    function deal(){
+        
+    }
+    function whoWins(){
+        
+    }
+    function play(){
+        
+    }
+    function endGame(){
+        
+    }
+    function startGame(){
+        
+    }
+    
+    ////////////Game///////////
+    
+    
+    
+    ///////////////////////////
     
 ?>
     </body>

@@ -1,0 +1,44 @@
+.card {
+    
+}
+
+.board {
+    display: block;
+    margin: auto;
+}
+
+.allPlayers {
+    
+}
+
+.player {
+    
+}
+
+.playerImage {
+    
+}
+
+.title {
+    display: block;
+    margin: auto;
+}
+
+.hand {
+    width: 432px;
+    height: 98px;
+}
+
+.result {
+    
+}
+
+.points {
+    
+}
+
+#playAgain {
+    display: block;
+    margin: auto;
+    background-color: green;
+}

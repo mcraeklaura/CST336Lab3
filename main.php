@@ -6,10 +6,10 @@
     <?php
     
     $players = array(
-        $me = array("points" => 0),
-        $comp1 = array("points" => 0),
-        $comp2 = array("points" => 0),
-        $comp3 = array("points" => 0),
+        $me = array("points" => 0, "hand" => array()),
+        $comp1 = array("points" => 0, "hand" => array()),
+        $comp2 = array("points" => 0, "hand" => array()),
+        $comp3 = array("points" => 0, "hand" => array()),
         );
 
     //Hearts, Diamonds, Spades, Clubs
@@ -98,16 +98,32 @@
     $aceC = array("value" => 1, "img" => "",);
     
     function shuffleDeck(){
-        
+        shuffle($deck);
     }
     function deal(){
-        
+        //This will deal for one person
+        $numOfCards = rand(4,6);
+        for($i = 0; $i < $numOfCards; $i++){
+            
+        }
     }
     function whoWins(){
         
     }
-    function play(){
-        
+    function draw(){
+        echo "<div class = \"board\">
+        <div class = "title">
+            Silver Jack
+        </div>
+        <div class = \"allPlayers\">
+            <div class=\"player\">
+                
+            </div>
+            <div>
+                
+            </div>
+        </div>
+    </div>";
     }
     function endGame(){
         
@@ -115,14 +131,10 @@
     function startGame(){
         
     }
+?>    
+    ////////////Board//////////
     
-    ////////////Game///////////
     
-    
-    
-    ///////////////////////////
-    
-?>
     </body>
 </html>
 

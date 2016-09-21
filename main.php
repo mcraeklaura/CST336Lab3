@@ -98,19 +98,25 @@
     $aceC = array("value" => 1, "img" => "",);
     
     function shuffleDeck(){
+        global $deck;
         shuffle($deck);
     }
-    function deal(){
+    function dealAll(){
         //This will deal for all persons
-        
+        global $players, $deck, $kingH, $kingD, $kingS, $kingC,$queenH, $queenD, $queenS, $queenC,$jackH, $jackD, $jackS, $jackC,
+        $tenH, $tenD, $tenS, $tenC,
+        $nineH, $nineD, $nineS, $nineC,$eightH, $eightD, $eightS, $eightC,$sevenH, $sevenD, $sevenS, $sevenC,$sixH, $sixD, $sixS, $sixC,$fiveH, $fiveD, $fiveS, $fiveC,$fourH, $fourD, $fourS, $fourC,$threeH, $threeD, $threeS, $threeC,$twoH, $twoD, $twoS, $twoC,$aceH, $aceD, $aceS, $aceC;
         //Going for all four players
+        //var_dump($aceC["value"]);
         for($x = 0; $x < 4; $x++){
             $numOfCards = rand(4,6);
             $y = 1;
             for($i = 0; $i < $numOfCards; $i++){
                 array_push($players[$x]["hand"], $deck[$i]);
+                echo $players[$x]["hand"][0]["value"];
+                //var_dump($players[$x]["hand"]);
             }
-            shuffle();
+            shuffleDeck();
         }
         
     }
@@ -136,8 +142,10 @@
       
     }
     function startGame(){
-        
+        shuffleDeck();
+        dealAll();
     }
+    startGame();
 ?>    
     ////////////Board//////////
     

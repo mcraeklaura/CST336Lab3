@@ -101,18 +101,25 @@
         shuffle($deck);
     }
     function deal(){
-        //This will deal for one person
-        $numOfCards = rand(4,6);
-        for($i = 0; $i < $numOfCards; $i++){
-            
+        //This will deal for all persons
+        
+        //Going for all four players
+        for($x = 0; $x < 4; $x++){
+            $numOfCards = rand(4,6);
+            $y = 1;
+            for($i = 0; $i < $numOfCards; $i++){
+                array_push($players[$x]["hand"], $deck[$i]);
+            }
+            shuffle();
         }
+        
     }
     function whoWins(){
         
     }
     function draw(){
         echo "<div class = \"board\">
-        <div class = "title">
+        <div class = \"title\">
             Silver Jack
         </div>
         <div class = \"allPlayers\">
@@ -126,7 +133,7 @@
     </div>";
     }
     function endGame(){
-        
+      
     }
     function startGame(){
         

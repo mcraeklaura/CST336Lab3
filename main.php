@@ -5,7 +5,7 @@
     <body>
     <?php
     //Number of their index (0:me 1:comp1 ...)
-    $winner = -1;
+    $winner = array();
     
     $array = array(); $array1 = array(); $array2 = array(); $array3 = array();
     $me = array("points" => 0, "hand" => $array);
@@ -151,7 +151,7 @@
         //Now we are going to set the winner to the number in the array
         for($i = 0; $i < 4; $i++){
             if($players[$i]["points"] == $minPoints){
-                $winner = $i;
+                array_push($winner,$i);
                 break;
             }
         }
@@ -177,7 +177,7 @@
         shuffleDeck();
         dealAll();
         whoWins();
-        echo $winner;
+        var_dump($winner);
     }
     startGame();
 ?>    

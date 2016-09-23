@@ -1,6 +1,6 @@
 <html>
     <head>
-        
+        <link rel="stylesheet" type="text/css" href="styles.css">
     </head>
     <body>
     <?php
@@ -101,39 +101,133 @@
         shuffle($deck);
     }
     function deal(){
-        //This will deal for one person
-        $numOfCards = rand(4,6);
-        for($i = 0; $i < $numOfCards; $i++){
-            
+        //This will deal for all persons
+        
+        //Going for all four players
+        for($x = 0; $x < 4; $x++){
+            $numOfCards = rand(4,6);
+            $y = 1;
+            for($i = 0; $i < $numOfCards; $i++){
+                array_push($players[$x]["hand"], $deck[$i]);
+            }
+            shuffle();
         }
+        
     }
     function whoWins(){
         
-    }
+    } 
     function draw(){
         echo "<div class = \"board\">
-        <div class = "title">
-            Silver Jack
+        <div class = \"title\">
+            <h2>Silver Jack</h2>
         </div>
         <div class = \"allPlayers\">
             <div class=\"player\">
-                
+                <div class=\"playerImage\">
+                <img src=\"PlayerImgs/player1.jpg\" alt=\"PlayerImage\">
+                </div>
+                <div class=\"hand\">
+                 <img src=\"CardImgs/Clubs/aceC.png\" alt=\"CardImage\">
+                  <img src=\"CardImgs/Clubs/twoC.png\" alt=\"CardImage\">
+                   <img src=\"CardImgs/Clubs/threeC.png\" alt=\"CardImage\">
+                    <img src=\"CardImgs/Clubs/fourC.png\" alt=\"Cardmage\">
+                     <img src=\"CardImgs/Clubs/fiveC.png\" alt=\"CardImage\">
+                      <img src=\"CardImgs/Clubs/sixC.png\" alt=\"CardImage\">
+                </div>
+                <div class=\"points\">
+                <br>
+                SCORE?
+                </div>
+                <div class=\"result\">
+                <br>
+                Winner!
+                </div>
+            </div>
+            <div class=\"player\">
+                <div class=\"playerImage\">
+                <img src=\"PlayerImgs/player2.jpg\" alt=\"PlayerImage\">
+                </div>
+                     <div class=\"hand\">
+                 <img src=\"CardImgs/Clubs/aceC.png\" alt=\"CardImage\">
+                  <img src=\"CardImgs/Clubs/twoC.png\" alt=\"CardImage\">
+                   <img src=\"CardImgs/Clubs/threeC.png\" alt=\"CardImage\">
+                    <img src=\"CardImgs/Clubs/fourC.png\" alt=\"Cardmage\">
+                     <img src=\"CardImgs/Clubs/fiveC.png\" alt=\"CardImage\">
+                      <img src=\"CardImgs/Clubs/sixC.png\" alt=\"CardImage\">
+                </div>
+                <div class=\"points\">
+                <br>
+                SCORE?
+                </div>
+                <div class=\"result\">
+                <br>
+                Winner!
+                </div>
+            </div>
+            <div class=\"player\">
+                <div class=\"playerImage\">
+                <img src=\"PlayerImgs/player3.jpg\" alt=\"PlayerImage\">
+                </div>
+                     <div class=\"hand\">
+                 <img src=\"CardImgs/Clubs/aceC.png\" alt=\"CardImage\">
+                  <img src=\"CardImgs/Clubs/twoC.png\" alt=\"CardImage\">
+                   <img src=\"CardImgs/Clubs/threeC.png\" alt=\"CardImage\">
+                    <img src=\"CardImgs/Clubs/fourC.png\" alt=\"Cardmage\">
+                     <img src=\"CardImgs/Clubs/fiveC.png\" alt=\"CardImage\">
+                      <img src=\"CardImgs/Clubs/sixC.png\" alt=\"CardImage\">
+                </div>
+                <div class=\"points\">
+                <br>
+                SCORE?
+                </div>
+                <div class=\"result\">
+                <br>
+                Winner!
+                </div>
+            </div>
+             <div class=\"player\">
+                <div class=\"playerImage\">
+                <img src=\"PlayerImgs/player4.jpg\" alt=\"PlayerImage\">
+                </div>
+                     <div class=\"hand\">
+                 <img src=\"CardImgs/Clubs/aceC.png\" alt=\"CardImage\">
+                  <img src=\"CardImgs/Clubs/twoC.png\" alt=\"CardImage\">
+                   <img src=\"CardImgs/Clubs/threeC.png\" alt=\"CardImage\">
+                    <img src=\"CardImgs/Clubs/fourC.png\" alt=\"Cardmage\">
+                     <img src=\"CardImgs/Clubs/fiveC.png\" alt=\"CardImage\">
+                      <img src=\"CardImgs/Clubs/sixC.png\" alt=\"CardImage\">
+                </div>
+                <div class=\"points\">
+                <br>
+                500
+                </div>
+                <div class=\"result\">
+                <br>
+               player 1 wins!
+                </div>
             </div>
             <div>
                 
             </div>
         </div>
+        <br>
+        <div id=\"playAgain\">
+        <a href=\"main.php\">Play Again</a>
+        </div>
     </div>";
     }
     function endGame(){
-        
+      
     }
     function startGame(){
         
     }
 ?>    
     ////////////Board//////////
-    
+    <?php
+    draw();
+    ?>
     
     </body>
 </html>

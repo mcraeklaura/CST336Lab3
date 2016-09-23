@@ -4,34 +4,21 @@
     </head>
     <body>
     <?php
+    //Number of their index (0:me 1:comp1 ...)
+    $winner = array();
     
+    $array = array(); $array1 = array(); $array2 = array(); $array3 = array();
+    $me = array("points" => 0, "hand" => $array);
+        $comp1 = array("points" => 0, "hand" => $array1);
+        $comp2 = array("points" => 0, "hand" => $array2);
+        $comp3 = array("points" => 0, "hand" => $array3);
     $players = array(
-        $me = array("points" => 0, "hand" => array()),
-        $comp1 = array("points" => 0, "hand" => array()),
-        $comp2 = array("points" => 0, "hand" => array()),
-        $comp3 = array("points" => 0, "hand" => array()),
+        $me,
+        $comp1,
+        $comp2,
+        $comp3,
         );
 
-    //Hearts, Diamonds, Spades, Clubs
-
-    $deck = array(
-        $kingH, $kingD, $kingS, $kingC,
-        $queenH, $queenD, $queenS, $queenC,
-        $jackH, $jackD, $jackS, $jackC,
-        $tenH, $tenD, $tenS, $tenC,
-        $nineH, $nineD, $nineS, $nineC,
-        $eightH, $eightD, $eightS, $eightC,
-        $sevenH, $sevenD, $sevenS, $sevenC,
-        $sixH, $sixD, $sixS, $sixC,
-        $fiveH, $fiveD, $fiveS, $fiveC,
-        $fourH, $fourD, $fourS, $fourC,
-        $threeH, $threeD, $threeS, $threeC,
-        $twoH, $twoD, $twoS, $twoC,
-        $aceH, $aceD, $aceS, $aceC,
-    );
-    
-    //Img 72x98 px
-    
     $kingH = array("value" => 13,"img" => "",);
     $kingD = array("value" => 13,"img" => "",);
     $kingS = array("value" => 13,"img" => "",);
@@ -97,27 +84,81 @@
     $aceS = array("value" => 1, "img" => "",);
     $aceC = array("value" => 1, "img" => "",);
     
+
+    //Hearts, Diamonds, Spades, Clubs
+
+    $deck = array(
+        $kingH, $kingD, $kingS, $kingC,
+        $queenH, $queenD, $queenS, $queenC,
+        $jackH, $jackD, $jackS, $jackC,
+        $tenH, $tenD, $tenS, $tenC,
+        $nineH, $nineD, $nineS, $nineC,
+        $eightH, $eightD, $eightS, $eightC,
+        $sevenH, $sevenD, $sevenS, $sevenC,
+        $sixH, $sixD, $sixS, $sixC,
+        $fiveH, $fiveD, $fiveS, $fiveC,
+        $fourH, $fourD, $fourS, $fourC,
+        $threeH, $threeD, $threeS, $threeC,
+        $twoH, $twoD, $twoS, $twoC,
+        $aceH, $aceD, $aceS, $aceC,
+    );
+    
+    //Img 72x98 px
+    
+
     function shuffleDeck(){
+        global $deck;
         shuffle($deck);
     }
-    function deal(){
+
+    
+    //Works
+    function dealAll(){
         //This will deal for all persons
-        
+        global $players, $deck, $kingH, $kingD, $kingS, $kingC,$queenH, $queenD, $queenS, $queenC,$jackH, $jackD, $jackS, $jackC,
+        $tenH, $tenD, $tenS, $tenC,
+        $nineH, $nineD, $nineS, $nineC,$eightH, $eightD, $eightS, $eightC,$sevenH, $sevenD, $sevenS, $sevenC,$sixH, $sixD, $sixS, $sixC,$fiveH, $fiveD, $fiveS, $fiveC,$fourH, $fourD, $fourS, $fourC,$threeH, $threeD, $threeS, $threeC,$twoH, $twoD, $twoS, $twoC,$aceH, $aceD, $aceS, $aceC;
         //Going for all four players
+        //var_dump($aceC["value"]);
         for($x = 0; $x < 4; $x++){
             $numOfCards = rand(4,6);
             $y = 1;
             for($i = 0; $i < $numOfCards; $i++){
                 array_push($players[$x]["hand"], $deck[$i]);
             }
-            shuffle();
+
+            shuffleDeck();
         }
         
     }
-    function whoWins(){
-        
-    } 
-    function draw(){
+    function whoWins(){ 
+        global $players, $deck, $kingH, $kingD, $kingS, $kingC,$queenH, $queenD, $queenS, $queenC,$jackH, $jackD, $jackS, $jackC,
+        $tenH, $tenD, $tenS, $tenC,
+        $nineH, $nineD, $nineS, $nineC,$eightH, $eightD, $eightS, $eightC,$sevenH, $sevenD, $sevenS, $sevenC,$sixH, $sixD, $sixS, $sixC,$fiveH, $fiveD, $fiveS, $fiveC,$fourH, $fourD, $fourS, $fourC,$threeH, $threeD, $threeS, $threeC,$twoH, $twoD, $twoS, $twoC,$aceH, $aceD, $aceS, $aceC;
+        global $winner;
+        $minPoints = 100;
+        for($i = 0; $i < 4; $i++){
+            //Go through all in deck and add up points
+            $sum = 0;
+            for($y = 0; $y < (sizeof($players[$i]["hand"])); $y++){
+                $sum = $sum + $players[$i]["hand"][$y]["value"];
+            }
+            
+            $players[$i]["points"] = $sum;
+            
+            if($minPoints > $sum){
+                $minPoints = $sum;
+            }
+        }
+        //Now we are going to set the winner to the number in the array
+        for($i = 0; $i < 4; $i++){
+            if($players[$i]["points"] == $minPoints){
+                array_push($winner,$i);
+                break;
+            }
+        }
+    }
+       function draw(){
         echo "<div class = \"board\">
         <div class = \"title\">
             <h2>Silver Jack</h2>
@@ -217,17 +258,17 @@
         </div>
     </div>";
     }
-    function endGame(){
-      
-    }
+
     function startGame(){
-        
+        global $winner;
+        shuffleDeck();
+        dealAll();
+        whoWins();
+        var_dump($winner);
     }
-?>    
-    ////////////Board//////////
-    <?php
+    startGame();
     draw();
-    ?>
+?>
     
     </body>
 </html>

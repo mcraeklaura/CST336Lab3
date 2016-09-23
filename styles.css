@@ -49,7 +49,6 @@
 .points {
     float: left;
     width: 90px;
-    border-right: 1px solid black;
     margin-left:10px;
     text-align:center;
     height:98px;

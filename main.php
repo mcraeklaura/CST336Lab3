@@ -18,6 +18,8 @@
         $comp2,
         $comp3,
         );
+        
+    
 
     $kingH = array("value" => 13,"img" => "",);
     $kingD = array("value" => 13,"img" => "",);
@@ -268,6 +270,7 @@
     }
     startGame();
     draw();
+    echo sizeof($players[1]["hand"]);
 ?>
     
     </body>

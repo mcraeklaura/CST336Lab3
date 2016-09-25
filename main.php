@@ -146,13 +146,17 @@
             
             $players[$i]["points"] = $sum;
             
-            if($minPoints > $sum){
-                $minPoints = $sum;
+            if(42 < $sum){
+            }
+            else{
+                if($sum > $points42){
+                    $points42 = $sum;
+                }
             }
         }
         //Now we are going to set the winner to the number in the array
         for($i = 0; $i < 4; $i++){
-            if($players[$i]["points"] == $minPoints){
+            if($players[$i]["points"] == $points42){
                 array_push($winner,$i);
                 break;
             }

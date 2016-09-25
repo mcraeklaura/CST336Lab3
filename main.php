@@ -167,7 +167,7 @@
         $tenH, $tenD, $tenS, $tenC,
         $nineH, $nineD, $nineS, $nineC,$eightH, $eightD, $eightS, $eightC,$sevenH, $sevenD, $sevenS, $sevenC,$sixH, $sixD, $sixS, $sixC,$fiveH, $fiveD, $fiveS, $fiveC,$fourH, $fourD, $fourS, $fourC,$threeH, $threeD, $threeS, $threeC,$twoH, $twoD, $twoS, $twoC,$aceH, $aceD, $aceS, $aceC;
         global $winner, $me, $comp1, $comp2, $comp3;
-        var_dump($winner);
+        
         echo "<div class = \"board\">
         <div class = \"title\">
             <h2>Silver Jack</h2>

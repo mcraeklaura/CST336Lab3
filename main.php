@@ -160,7 +160,6 @@
         for($i = 0; $i < 4; $i++){
             if($players[$i]["points"] == $points42){
                 array_push($winner,$i);
-                break;
             }
         }
     }
@@ -169,6 +168,7 @@
         $tenH, $tenD, $tenS, $tenC,
         $nineH, $nineD, $nineS, $nineC,$eightH, $eightD, $eightS, $eightC,$sevenH, $sevenD, $sevenS, $sevenC,$sixH, $sixD, $sixS, $sixC,$fiveH, $fiveD, $fiveS, $fiveC,$fourH, $fourD, $fourS, $fourC,$threeH, $threeD, $threeS, $threeC,$twoH, $twoD, $twoS, $twoC,$aceH, $aceD, $aceS, $aceC;
         global $winner, $me, $comp1, $comp2, $comp3;
+
         echo "<div class = \"board\">
         <div class = \"title\">
             <h2>Silver Jack</h2>
@@ -189,9 +189,16 @@
                 echo $players[0]["points"];
                 echo"</div>
                 <div class=\"result\">
-                <br>
-                
-                </div>
+
+                <br>";
+                 for($i=0;$i<sizeof($winner);$i++)
+                {
+                    if($winner[$i] == 0)
+                    {
+                        echo "Player 1 wins!";
+                    }
+                }
+               echo " </div>
             </div>
             <div class=\"player\">
                 <div class=\"playerImage\">";
@@ -207,9 +214,16 @@
                 echo $players[1]["points"];
                 echo"</div>
                 <div class=\"result\">
-                <br>
-                
-                </div>
+
+                <br>";
+                for($i=0;$i<sizeof($winner);$i++)
+                {
+                    if($winner[$i] == 1)
+                    {
+                        echo "Player 2 wins!";
+                    }
+                }
+              echo " </div>
             </div>
             <div class=\"player\">
                 <div class=\"playerImage\">";
@@ -225,9 +239,16 @@
                 echo $players[2]["points"];
                 echo"</div>
                 <div class=\"result\">
-                <br>
-               
-                </div>
+
+                <br>";
+                for($i=0;$i<sizeof($winner);$i++)
+                {
+                    if($winner[$i] == 2)
+                    {
+                        echo "Player 3 wins!";
+                    }
+                }
+              echo " </div>
             </div>
              <div class=\"player\">
                 <div class=\"playerImage\">";
@@ -243,7 +264,16 @@
                echo $players[3]["points"];
                 echo" </div>
                 <div class=\"result\">
-                <br></div>
+
+                <br>";
+                for($i=0;$i<sizeof($winner);$i++)
+                {
+                    if($winner[$i] == 3)
+                    {
+                        echo "Player 4 wins!";
+                    }
+                }
+              echo "</div>
             </div>
             <div>
                 

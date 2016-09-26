@@ -18,8 +18,6 @@
         $comp2,
         $comp3,
         );
-        
-    
 
     $kingH = array("value" => 13,"img" => "<img src=\"CardImgs/Hearts/kingH.png\" alt=\"CardImage\">",);
     $kingD = array("value" => 13,"img" => "<img src=\"CardImgs/Diamonds/kingD.png\" alt=\"CardImage\">",);
@@ -138,7 +136,7 @@
         $tenH, $tenD, $tenS, $tenC,
         $nineH, $nineD, $nineS, $nineC,$eightH, $eightD, $eightS, $eightC,$sevenH, $sevenD, $sevenS, $sevenC,$sixH, $sixD, $sixS, $sixC,$fiveH, $fiveD, $fiveS, $fiveC,$fourH, $fourD, $fourS, $fourC,$threeH, $threeD, $threeS, $threeC,$twoH, $twoD, $twoS, $twoC,$aceH, $aceD, $aceS, $aceC;
         global $winner;
-        $points42 = 100;
+        $minPoints = 100;
         for($i = 0; $i < 4; $i++){
             //Go through all in deck and add up points
             $sum = 0;
@@ -160,6 +158,7 @@
         for($i = 0; $i < 4; $i++){
             if($players[$i]["points"] == $points42){
                 array_push($winner,$i);
+                break;
             }
         }
     }
@@ -168,7 +167,7 @@
         $tenH, $tenD, $tenS, $tenC,
         $nineH, $nineD, $nineS, $nineC,$eightH, $eightD, $eightS, $eightC,$sevenH, $sevenD, $sevenS, $sevenC,$sixH, $sixD, $sixS, $sixC,$fiveH, $fiveD, $fiveS, $fiveC,$fourH, $fourD, $fourS, $fourC,$threeH, $threeD, $threeS, $threeC,$twoH, $twoD, $twoS, $twoC,$aceH, $aceD, $aceS, $aceC;
         global $winner, $me, $comp1, $comp2, $comp3;
-
+        
         echo "<div class = \"board\">
         <div class = \"title\">
             <h2>Silver Jack</h2>
@@ -189,7 +188,6 @@
                 echo $players[0]["points"];
                 echo"</div>
                 <div class=\"result\">
-
                 <br>";
                  for($i=0;$i<sizeof($winner);$i++)
                 {
@@ -214,7 +212,6 @@
                 echo $players[1]["points"];
                 echo"</div>
                 <div class=\"result\">
-
                 <br>";
                 for($i=0;$i<sizeof($winner);$i++)
                 {
@@ -239,7 +236,6 @@
                 echo $players[2]["points"];
                 echo"</div>
                 <div class=\"result\">
-
                 <br>";
                 for($i=0;$i<sizeof($winner);$i++)
                 {
@@ -264,7 +260,6 @@
                echo $players[3]["points"];
                 echo" </div>
                 <div class=\"result\">
-
                 <br>";
                 for($i=0;$i<sizeof($winner);$i++)
                 {
@@ -295,9 +290,10 @@
     }
     startGame();
     draw();
-    echo sizeof($players[1]["hand"]);
 ?>
     
     </body>
 </html>
+
+
 

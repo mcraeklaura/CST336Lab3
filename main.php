@@ -158,11 +158,7 @@
         for($i = 0; $i < 4; $i++){
             if($players[$i]["points"] == $points42){
                 array_push($winner,$i);
-<<<<<<< HEAD
-                
-=======
-                break;
->>>>>>> 2b3005159b8001ab7e8ef040c90a93b6fb5643a3
+
             }
         }
     }
